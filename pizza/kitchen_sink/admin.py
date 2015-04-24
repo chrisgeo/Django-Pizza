@@ -208,7 +208,7 @@ class PageAdmin (admin.ModelAdmin):
   def get_urls (self):
     from django.conf.urls import patterns, url
     
-    info = self.model._meta.app_label, self.model._meta.module_name
+    info = self.model._meta.app_label, self.model._meta.model_name
     urlpatterns = patterns('',
       url(r'^(.+)/versions/$', self.versionlist_view, name='%s_%s_versionlist' % info),
     )
@@ -428,7 +428,7 @@ class ImageAdmin (admin.ModelAdmin):
   def get_urls (self):
     from django.conf.urls import patterns, url
     
-    info = self.model._meta.app_label, self.model._meta.module_name
+    info = self.model._meta.app_label, self.model._meta.model_name
     urlpatterns = patterns('',
       url(r'^multi/$', self.multi_view, name='%s_%s_multi' % info),
       url(r'^(.+)/get_url/$', self.url_view, name='%s_%s_url' % info),
@@ -469,7 +469,7 @@ class FileAdmin (AdminMixin, admin.ModelAdmin):
   def get_urls (self):
     from django.conf.urls import patterns, url
     
-    info = self.model._meta.app_label, self.model._meta.module_name
+    info = self.model._meta.app_label, self.model._meta.model_name
     urlpatterns = patterns('',
       url(r'^(.+)/get_url/$', self.url_view, name='%s_%s_url' % info),
     )
