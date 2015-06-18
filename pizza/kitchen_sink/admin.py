@@ -1,6 +1,7 @@
 import json
 import types
 
+import django
 from django.contrib import admin
 from django.db import models
 from django import forms
