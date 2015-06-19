@@ -270,7 +270,7 @@ class Author (SitesMixin, models.Model):
   image = models.ForeignKey(Image, blank=True, null=True)
   description = models.TextField('Description/Bio', blank=True, null=True)
   
-  sites = models.ManyToManyField(Site, blank=True, null=True)
+  sites = models.ManyToManyField(Site, blank=True)
   
   @staticmethod
   def autocomplete_search_fields():
