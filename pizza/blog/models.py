@@ -37,11 +37,11 @@ class Blog (SitesMixin, models.Model):
   image = models.ForeignKey('kitchen_sink.Image', blank=True, null=True)
   podcast = models.BooleanField(default=False)
   
-  authors = models.ManyToManyField('kitchen_sink.Author', blank=True, null=True)
+  authors = models.ManyToManyField('kitchen_sink.Author', blank=True)
   
-  sites = models.ManyToManyField(Site, blank=True, null=True)
+  sites = models.ManyToManyField(Site, blank=True)
   
-  formats = models.ManyToManyField(FileFormat, blank=True, null=True)
+  formats = models.ManyToManyField(FileFormat, blank=True)
   
   @cached_method
   def categories (self):
@@ -71,9 +71,9 @@ class Post (SlideshowMixin, models.Model):
   
   title = models.CharField(max_length=255)
   slug = models.SlugField(unique=True, max_length=200)
-  authors = models.ManyToManyField('kitchen_sink.Author', blank=True, null=True)
+  authors = models.ManyToManyField('kitchen_sink.Author', blank=True)
   publish = models.DateTimeField()
-  categories = models.ManyToManyField(Category, blank=True, null=True)
+  categories = models.ManyToManyField(Category, blank=True)
   
   body = models.TextField()
   audio_embed = models.TextField('Audio Embed Code', blank=True, null=True)

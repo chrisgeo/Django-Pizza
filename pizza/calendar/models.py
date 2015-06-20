@@ -46,7 +46,7 @@ class Event (SlideshowMixin, models.Model):
   
   series = models.ForeignKey(Series, blank=True, null=True)
   
-  categories = models.ManyToManyField(Category, blank=True, null=True)
+  categories = models.ManyToManyField(Category, blank=True)
   
   @staticmethod
   def autocomplete_search_fields():

@@ -6,7 +6,7 @@ from django.core.cache import cache
 from django.utils.timezone import utc
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericRelation
 
 PIZZA_CACHE_TIMEOUT = getattr(settings, 'PIZZA_CACHE_TIMEOUT', 600)
 
@@ -115,7 +115,7 @@ def copy_many_to_many (obj, newobj):
       for thingy in org_m2m.all():
         new_m2m.add(thingy)
         
-    elif isinstance(f, generic.GenericRelation):
+    elif isinstance(f, GenericRelation):
       new_m2m.clear()
       
       for thingy in org_m2m.all():

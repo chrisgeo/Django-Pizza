@@ -10,7 +10,7 @@ from django.template.response import TemplateResponse
 from django.contrib.sites.models import Site
 from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 from django.db.models.fields.related import ManyToOneRel
-from django.contrib.admin.util import unquote
+from django.contrib.admin.utils import unquote
 from django.contrib.admin import helpers
 from django.utils import timezone
 from django import http
